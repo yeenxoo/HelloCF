@@ -4,6 +4,8 @@ import time
 import json
 import os
 
+
+from discord import app_commands
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
@@ -79,6 +81,7 @@ async def cf(interaction: discord.Interaction):
 	name="init_setting",
 	description="Set reminder channel and role"
 )
+@app_commands.default_permissions(administrator=True)
 async def init_setting(
 	interaction: discord.Interaction,
 	channel: discord.TextChannel,
